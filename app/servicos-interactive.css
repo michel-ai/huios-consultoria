@@ -1,0 +1,378 @@
+/* Services Interactive Section */
+.services-interactive-section {
+  background: linear-gradient(135deg, #000000 0%, #111111 100%);
+}
+
+.services-interactive-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Services Navigation */
+.services-nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.service-nav-item {
+  background: rgba(21, 255, 0, 0.05);
+  border: 2px solid rgba(21, 255, 0, 0.2);
+  border-radius: 15px;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  color: #ffffff;
+}
+
+.service-nav-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--service-color, #15ff00);
+  box-shadow: 0 10px 25px rgba(21, 255, 0, 0.15);
+}
+
+.service-nav-item.active {
+  border-color: var(--service-color, #15ff00);
+  background: rgba(var(--service-color, #15ff00), 0.1);
+  box-shadow: 0 10px 25px rgba(var(--service-color, #15ff00), 0.2);
+  transform: translateY(-5px);
+}
+
+.service-nav-icon {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+}
+
+.service-nav-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Service Detail */
+.service-detail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background: rgba(21, 255, 0, 0.05);
+  border: 1px solid rgba(21, 255, 0, 0.2);
+  border-radius: 25px;
+  padding: 40px;
+  transition: all 0.3s ease;
+}
+
+.service-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.service-detail-icon {
+  font-size: 2.5rem;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  color: #000000;
+}
+
+.service-detail-title {
+  font-size: 2.2rem;
+  color: #15ff00;
+  font-weight: 700;
+}
+
+.service-detail-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.service-detail-features {
+  margin-bottom: 30px;
+}
+
+.service-detail-features h4,
+.service-detail-cases h4 {
+  color: #15ff00;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-list li {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+  font-size: 1rem;
+}
+
+.feature-bullet {
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.service-detail-cases {
+  margin-bottom: 30px;
+}
+
+.service-detail-cases p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.service-detail-actions {
+  display: flex;
+  gap: 20px;
+}
+
+/* Service Detail Visual */
+.service-detail-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.service-detail-image-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 300px;
+}
+
+.service-detail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-detail-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.service-pricing-preview {
+  background: rgba(21, 255, 0, 0.05);
+  border: 1px solid rgba(21, 255, 0, 0.2);
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.pricing-preview-header h4 {
+  color: #15ff00;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.pricing-preview-content {
+  display: flex;
+  justify-content: space-around;
+}
+
+.pricing-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.pricing-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.pricing-value {
+  color: #15ff00;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Process Flow */
+.process-flow {
+  margin-top: 50px;
+}
+
+.process-timeline {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.process-step-item {
+  flex: 1;
+  position: relative;
+  padding: 0 15px;
+  text-align: center;
+}
+
+.process-step-number {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #000000;
+  margin: 0 auto 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.process-connector {
+  position: absolute;
+  top: 25px;
+  left: calc(50% + 25px);
+  width: calc(100% - 50px);
+  height: 3px;
+  background: linear-gradient(90deg, #15ff00, #00c8ff);
+  z-index: 1;
+}
+
+.process-step-content {
+  background: rgba(21, 255, 0, 0.05);
+  border: 1px solid rgba(21, 255, 0, 0.2);
+  border-radius: 15px;
+  padding: 25px 15px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.process-step-content:hover {
+  transform: translateY(-5px);
+  border-color: #15ff00;
+  box-shadow: 0 15px 30px rgba(21, 255, 0, 0.15);
+}
+
+.process-step-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.process-step-title {
+  color: #15ff00;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.process-step-description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .service-detail-container {
+    padding: 30px;
+  }
+
+  .process-timeline {
+    flex-wrap: wrap;
+  }
+
+  .process-step-item {
+    flex: 0 0 50%;
+    margin-bottom: 40px;
+  }
+
+  .process-connector {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-detail-container {
+    grid-template-columns: 1fr;
+    padding: 25px;
+  }
+
+  .service-nav-item {
+    min-width: 100px;
+    padding: 12px 15px;
+  }
+
+  .service-nav-icon {
+    font-size: 2rem;
+  }
+
+  .service-detail-title {
+    font-size: 1.8rem;
+  }
+
+  .service-detail-description {
+    font-size: 1rem;
+  }
+
+  .service-detail-actions {
+    flex-direction: column;
+  }
+
+  .process-step-item {
+    flex: 0 0 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .service-nav-item {
+    min-width: 90px;
+    flex-shrink: 0;
+  }
+
+  .service-detail-container {
+    padding: 20px;
+  }
+
+  .service-detail-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .service-detail-icon {
+    margin: 0 auto;
+  }
+
+  .pricing-preview-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

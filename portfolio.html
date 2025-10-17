@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Huios Consultoria</title>
+    <meta name="description" content="Conheça nossos casos de sucesso e projetos realizados. Mais de 100 projetos entregues com excelência.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <a href="index.html" class="navbar-brand">
+                    <div class="logo-container">
+                        <img src="images/huios-logo.jpg" alt="Huios Consultoria" class="logo-img">
+                    </div>
+                </a>
+
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <ul class="navbar-nav desktop-nav">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                    <li><a href="servicos.html" class="nav-link">O que fazemos</a></li>
+                    <li><a href="portfolio.html" class="nav-link active">Portfólio</a></li>
+                    <li><a href="contato.html" class="nav-link">Contate-nos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h3>Menu</h3>
+            <button class="close-button" id="closeButton">✕</button>
+        </div>
+        <ul class="mobile-menu-nav">
+            <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+            <li><a href="sobre.html" class="mobile-nav-link">Sobre</a></li>
+            <li><a href="servicos.html" class="mobile-nav-link">O que fazemos</a></li>
+            <li><a href="portfolio.html" class="mobile-nav-link active">Portfólio</a></li>
+            <li><a href="contato.html" class="mobile-nav-link">Contate-nos</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="portfolio-hero">
+        <div class="portfolio-hero-bg">
+            <div class="portfolio-hero-overlay"></div>
+        </div>
+        <div class="container portfolio-hero-container">
+            <div class="portfolio-hero-content">
+                <div class="portfolio-hero-badge">
+                    <span class="badge-icon">🎯</span>
+                    <span class="badge-text">Nosso Portfólio</span>
+                </div>
+                <h1 class="portfolio-hero-title">
+                    Casos de <span class="text-gradient">Sucesso</span>
+                </h1>
+                <p class="portfolio-hero-description">
+                    Conheça alguns dos projetos que transformaram a infraestrutura de nossos clientes e geraram resultados
+                    excepcionais
+                </p>
+                <div class="portfolio-hero-stats">
+                    <div class="hero-stat">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Projetos Entregues</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Taxa de Sucesso</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Clientes Ativos</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="stat-number">R$ 5M+</div>
+                        <div class="stat-label">Valor Entregue</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-hero-shapes">
+            <div class="hero-shape hero-shape-1"></div>
+            <div class="hero-shape hero-shape-2"></div>
+            <div class="hero-shape hero-shape-3"></div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="portfolio-filter">
+        <div class="container">
+            <div class="filter-wrapper">
+                <h2 class="filter-title">Explore por Categoria</h2>
+                <div class="filter-buttons">
+                    <button class="filter-button active" data-filter="todos">
+                        <span class="filter-icon">🎯</span>
+                        <span class="filter-text">Todos os Projetos</span>
+                    </button>
+                    <button class="filter-button" data-filter="saude">
+                        <span class="filter-icon">🏥</span>
+                        <span class="filter-text">Saúde</span>
+                    </button>
+                    <button class="filter-button" data-filter="logistica">
+                        <span class="filter-icon">🚚</span>
+                        <span class="filter-text">Logística</span>
+                    </button>
+                    <button class="filter-button" data-filter="industria">
+                        <span class="filter-icon">🏭</span>
+                        <span class="filter-text">Indústria</span>
+                    </button>
+                    <button class="filter-button" data-filter="varejo">
+                        <span class="filter-icon">🛍️</span>
+                        <span class="filter-text">Varejo</span>
+                    </button>
+                    <button class="filter-button" data-filter="financeiro">
+                        <span class="filter-icon">🏦</span>
+                        <span class="filter-text">Financeiro</span>
+                    </button>
+                    <button class="filter-button" data-filter="tecnologia">
+                        <span class="filter-icon">💾</span>
+                        <span class="filter-text">Tecnologia</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="featured-projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossos Principais Cases</h2>
+                <p class="section-description">
+                    Conheça em detalhes nossos projetos mais impactantes e os resultados extraordinários alcançados
+                </p>
+            </div>
+
+            <div class="featured-projects-grid" id="featuredProjects">
+                <!-- Conteúdo será carregado dinamicamente via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Projects -->
+    <section class="other-projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Outros Projetos</span>
+                <h2 class="section-title">Mais Casos de Sucesso</h2>
+                <p class="section-description">Explore nossa ampla experiência em diferentes segmentos e tecnologias</p>
+            </div>
+
+            <div class="other-projects-grid" id="otherProjects">
+                <!-- Conteúdo será carregado dinamicamente via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Depoimentos</span>
+                <h2 class="section-title">O que nossos clientes dizem</h2>
+                <p class="section-description">Feedback real de clientes que transformaram seus negócios conosco</p>
+            </div>
+
+            <div class="testimonials-grid" id="testimonialsGrid">
+                <!-- Conteúdo será carregado dinamicamente via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="portfolio-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Pronto para ser nosso próximo caso de sucesso?</h2>
+                <p class="cta-description">
+                    Entre em contato conosco e vamos discutir como podemos transformar sua empresa
+                </p>
+                <div class="cta-actions">
+                    <a href="contato.html" class="btn-primary btn-large">
+                        <span class="btn-icon">🚀</span>
+                        Iniciar Projeto
+                    </a>
+                    <a href="servicos.html" class="btn-secondary btn-large">
+                        <span class="btn-icon">📋</span>
+                        Ver Serviços
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="cta-shapes">
+            <div class="cta-shape cta-shape-1"></div>
+            <div class="cta-shape cta-shape-2"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="grid grid-4 mb-6">
+                <div>
+                    <h3 style="color: #15ff00; margin-bottom: 20px; font-size: 1.2rem">Empresa</h3>
+                    <ul style="list-style: none">
+                        <li style="margin-bottom: 10px">
+                            <a href="sobre.html" style="color: #ffffff; text-decoration: none">Sobre Nós</a>
+                        </li>
+                        <li style="margin-bottom: 10px">
+                            <a href="servicos.html" style="color: #ffffff; text-decoration: none">Nossos Serviços</a>
+                        </li>
+                        <li style="margin-bottom: 10px">
+                            <a href="portfolio.html" style="color: #ffffff; text-decoration: none">Portfólio</a>
+                        </li>
+                        <li style="margin-bottom: 10px">
+                            <a href="contato.html" style="color: #ffffff; text-decoration: none">Contato</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="color: #15ff00; margin-bottom: 20px; font-size: 1.2rem">Serviços</h3>
+                    <ul style="list-style: none">
+                        <li style="margin-bottom: 10px; color: #ffffff">Mikrotik</li>
+                        <li style="margin-bottom: 10px; color: #ffffff">Huawei</li>
+                        <li style="margin-bottom: 10px; color: #ffffff">Datacom</li>
+                        <li style="margin-bottom: 10px; color: #ffffff">Monitoramentos</li>
+                        <li style="margin-bottom: 10px; color: #ffffff">Automações</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="color: #15ff00; margin-bottom: 20px; font-size: 1.2rem">Contato</h3>
+                    <div style="color: #ffffff">
+                        <p style="margin-bottom: 10px">📍 Belém, PA</p>
+                        <p style="margin-bottom: 10px">📞 (91) 9860-66544</p>
+                        <p style="margin-bottom: 10px">✉️ huiosconsutoria@gmail.com</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="color: #15ff00; margin-bottom: 20px; font-size: 1.2rem">Redes Sociais</h3>
+                    <div style="display: flex; gap: 15px">
+                        <a href="#" style="color: #15ff00; font-size: 1.5rem">📘</a>
+                        <a href="#" style="color: #15ff00; font-size: 1.5rem">📷</a>
+                        <a href="#" style="color: #15ff00; font-size: 1.5rem">🐦</a>
+                        <a href="#" style="color: #15ff00; font-size: 1.5rem">💼</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid rgba(21, 255, 0, 0.2); padding-top: 30px; text-align: center; color: #ffffff">
+                <p>&copy; 2024 Huios Consultoria. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/portfolio.js"></script>
+</body>
+</html>

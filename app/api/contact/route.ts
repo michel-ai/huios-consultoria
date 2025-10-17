@@ -59,52 +59,54 @@ export async function POST(request: Request) {
 
     console.log("✅ Dados preparados:", contactData)
 
-    // 1. Testar conexão com Supabase
-    console.log("🔌 Testando conexão Supabase...")
+    // 1. Verificar se Supabase está configurado
+    console.log("🔌 Verificando configuração Supabase...")
+    
+    const isSupabaseConfigured = process.env.NEXT_PUBLIC_SUPABASE_URL && 
+                                process.env.NEXT_PUBLIC_SUPABASE_URL !== "https://placeholder.supabase.co" &&
+                                process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY && 
+                                process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY !== "placeholder_key"
 
-    try {
-      const { error: testError } = await supabase.from("contacts").select("count", { count: "exact", head: true })
+    let savedContact = null
 
-      if (testError) {
-        console.error("❌ Erro teste conexão:", testError)
-        throw testError
+    if (isSupabaseConfigured) {
+      // 2. Salvar no banco de dados (se configurado)
+      console.log("💾 Salvando contato no banco...")
+
+      try {
+        const { data: dbContact, error: dbError } = await supabase
+          .from("contacts")
+          .insert([contactData])
+          .select()
+          .single()
+
+        if (dbError) {
+          console.error("❌ Erro ao salvar:", dbError)
+          throw dbError
+        }
+
+        savedContact = dbContact
+        console.log("✅ Contato salvo! ID:", savedContact.id)
+      } catch (dbError) {
+        console.error("❌ Erro no banco:", dbError)
+        return NextResponse.json(
+          {
+            success: false,
+            error: "Erro ao salvar contato no banco de dados",
+            details: dbError instanceof Error ? dbError.message : "Erro desconhecido",
+          },
+          { status: 500 },
+        )
       }
-
-      console.log("✅ Conexão Supabase OK")
-    } catch (connectionError) {
-      console.error("❌ Falha na conexão:", connectionError)
-      return NextResponse.json(
-        {
-          success: false,
-          error: "Erro de conexão com banco de dados",
-          details: connectionError instanceof Error ? connectionError.message : "Erro desconhecido",
-        },
-        { status: 500 },
-      )
+    } else {
+      console.log("⚠️ Supabase não configurado - pulando salvamento no banco")
+      // Criar um contato simulado para o retorno
+      savedContact = {
+        id: `temp_${Date.now()}`,
+        ...contactData,
+        created_at: new Date().toISOString(),
+      }
     }
-
-    // 2. Salvar no banco de dados
-    console.log("💾 Salvando contato no banco...")
-
-    const { data: savedContact, error: dbError } = await supabase
-      .from("contacts")
-      .insert([contactData])
-      .select()
-      .single()
-
-    if (dbError) {
-      console.error("❌ Erro ao salvar:", dbError)
-      return NextResponse.json(
-        {
-          success: false,
-          error: "Erro ao salvar contato",
-          details: dbError.message,
-        },
-        { status: 500 },
-      )
-    }
-
-    console.log("✅ Contato salvo! ID:", savedContact.id)
 
     // 3. Enviar emails (em paralelo para ser mais rápido)
     console.log("📧 Enviando emails...")

@@ -6,7 +6,7 @@ const resendKey = process.env.RESEND_API_KEY
 const emailDomain = process.env.EMAIL_DOMAIN || "onboarding@resend.dev"
 let resend: Resend | null = null
 
-if (resendKey) {
+if (resendKey && resendKey !== "placeholder_resend_key") {
   resend = new Resend(resendKey)
   console.log("✅ Resend configurado com chave:", resendKey.substring(0, 10) + "...")
   console.log("📧 Domínio de email:", emailDomain)

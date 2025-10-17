@@ -1,4 +1,5 @@
-/* Estilos globais da Huios Consultoria */
+@import url("./servicos-styles.css");
+@import url("./portfolio-styles.css");
 
 * {
   margin: 0;

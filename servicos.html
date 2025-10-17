@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - Huios Consultoria</title>
+    <meta name="description" content="Conheça nossos serviços especializados: Mikrotik, Huawei, Datacom, Monitoramento e Automação. Soluções tecnológicas completas.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <a href="index.html" class="navbar-brand">
+                    <div class="logo-container">
+                        <img src="images/huios-logo.jpg" alt="Huios Consultoria" class="logo-img">
+                    </div>
+                </a>
+
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <ul class="navbar-nav desktop-nav">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                    <li><a href="servicos.html" class="nav-link active">O que fazemos</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portfólio</a></li>
+                    <li><a href="contato.html" class="nav-link">Contate-nos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h3>Menu</h3>
+            <button class="close-button" id="closeButton">✕</button>
+        </div>
+        <ul class="mobile-menu-nav">
+            <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+            <li><a href="sobre.html" class="mobile-nav-link">Sobre</a></li>
+            <li><a href="servicos.html" class="mobile-nav-link active">O que fazemos</a></li>
+            <li><a href="portfolio.html" class="mobile-nav-link">Portfólio</a></li>
+            <li><a href="contato.html" class="mobile-nav-link">Contate-nos</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="services-hero-bg">
+            <div class="services-hero-overlay"></div>
+        </div>
+        <div class="container services-hero-container">
+            <div class="services-hero-content">
+                <div class="services-hero-badge">
+                    <span class="badge-icon">💼</span>
+                    <span class="badge-text">O Que Fazemos</span>
+                </div>
+                <h1 class="services-hero-title">
+                    Soluções Tecnológicas <span class="text-gradient">Inovadoras</span>
+                </h1>
+                <p class="services-hero-description">
+                    Transformamos sua infraestrutura com serviços especializados e tecnologia de última geração
+                </p>
+                <div class="services-hero-actions">
+                    <a href="#servicos" class="btn-primary">
+                        <span class="btn-icon">🔍</span>
+                        Explorar Serviços
+                    </a>
+                    <a href="contato.html" class="btn-secondary">
+                        <span class="btn-icon">💬</span>
+                        Fale Conosco
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="services-hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- Services Showcase Section -->
+    <section id="servicos" class="services-showcase">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Nossos Serviços</span>
+                <h2 class="section-title">Soluções Especializadas</h2>
+                <p class="section-description">
+                    Oferecemos uma ampla gama de serviços tecnológicos para atender às necessidades específicas da sua empresa
+                </p>
+            </div>
+
+            <div class="services-tabs">
+                <div class="services-tabs-nav">
+                    <button class="service-tab active" data-service="0">
+                        <span class="service-tab-icon">🔧</span>
+                        <span class="service-tab-title">Mikrotik</span>
+                    </button>
+                    <button class="service-tab" data-service="1">
+                        <span class="service-tab-icon">📡</span>
+                        <span class="service-tab-title">Huawei</span>
+                    </button>
+                    <button class="service-tab" data-service="2">
+                        <span class="service-tab-icon">💻</span>
+                        <span class="service-tab-title">Datacom</span>
+                    </button>
+                    <button class="service-tab" data-service="3">
+                        <span class="service-tab-icon">📊</span>
+                        <span class="service-tab-title">Monitoramentos</span>
+                    </button>
+                    <button class="service-tab" data-service="4">
+                        <span class="service-tab-icon">⚙️</span>
+                        <span class="service-tab-title">Automações</span>
+                    </button>
+                    <button class="service-tab" data-service="5">
+                        <span class="service-tab-icon">🎯</span>
+                        <span class="service-tab-title">Consultoria</span>
+                    </button>
+                </div>
+
+                <div class="service-content-wrapper">
+                    <div class="service-content" id="serviceContent">
+                        <!-- Conteúdo será carregado dinamicamente via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Nossos Valores</span>
+                <h2 class="section-title">Investimento Inteligente</h2>
+                <p class="section-description">
+                    Escolha entre implementação única ou consultoria mensal para atender às necessidades da sua empresa
+                </p>
+            </div>
+
+            <div class="pricing-tabs-wrapper">
+                <div class="pricing-tabs">
+                    <button class="pricing-tab active" data-tab="implementacao">
+                        <span class="pricing-tab-icon">🚀</span>
+                        <span class="pricing-tab-text">Implementação</span>
+                    </button>
+                    <button class="pricing-tab" data-tab="consultoria">
+                        <span class="pricing-tab-icon">📋</span>
+                        <span class="pricing-tab-text">Consultoria Mensal</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="pricing-cards" id="pricingCards">
+                <!-- Conteúdo será carregado dinamicamente via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Como Trabalhamos</span>
+                <h2 class="section-title">Nosso Processo</h2>
+                <p class="section-description">
+                    Metodologia comprovada para entregar resultados excepcionais em todos os projetos
+                </p>
+            </div>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-number">01</div>
+                    <div class="process-step-content">
+                        <div class="process-step-icon">🔍</div>
+                        <h3 class="process-step-title">Análise</h3>
+                        <p class="process-step-description">Avaliamos sua infraestrutura atual e identificamos oportunidades de melhoria.</p>
+                    </div>
+                    <div class="process-step-arrow"></div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-step-number">02</div>
+                    <div class="process-step-content">
+                        <div class="process-step-icon">📋</div>
+                        <h3 class="process-step-title">Planejamento</h3>
+                        <p class="process-step-description">Desenvolvemos um plano estratégico personalizado para suas necessidades.</p>
+                    </div>
+                    <div class="process-step-arrow"></div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-step-number">03</div>
+                    <div class="process-step-content">
+                        <div class="process-step-icon">⚙️</div>
+                        <h3 class="process-step-title">Implementação</h3>
+                        <p class="process-step-description">Executamos as soluções com precisão e dentro do prazo estabelecido.</p>
+                    </div>
+                    <div class="process-step-arrow"></div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-step-number">04</div>
+                    <div class="process-step-content">
+                        <div class="process-step-icon">🛠️</div>
+                        <h3 class="process-step-title">Suporte</h3>
+                        <p class="process-step-description">Oferecemos suporte contínuo para garantir o funcionamento otimizado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Por Que Nos Escolher</span>
+                <h2 class="section-title">Nossos Diferenciais</h2>
+                <p class="section-description">
+                    Vantagens exclusivas que fazem da Huios a melhor escolha para sua empresa
+                </p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3 class="benefit-title">Preços Competitivos</h3>
+                    <p class="benefit-description">Oferecemos os melhores preços do mercado sem comprometer a qualidade dos serviços.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3 class="benefit-title">Implementação Rápida</h3>
+                    <p class="benefit-description">Projetos executados com agilidade, respeitando prazos e mantendo alta qualidade.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3 class="benefit-title">Soluções Personalizadas</h3>
+                    <p class="benefit-description">Cada projeto é único e desenvolvido especificamente para suas necessidades.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔒</div>
+                    <h3 class="benefit-title">Segurança Garantida</h3>
+                    <p class="benefit-description">Implementamos as melhores práticas de segurança em todos os nossos projetos.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📞</div>
+                    <h3 class="benefit-title">Suporte 24/7</h3>
+                    <p class="benefit-description">Equipe técnica disponível 24 horas por dia, 7 dias por semana para emergências.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h3 class="benefit-title">ROI Comprovado</h3>
+                    <p class="benefit-description">Nossos clientes obtêm retorno sobre investimento em média de 6 a 12 meses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Pronto para transformar sua infraestrutura?</h2>
+                <p class="cta-description">
+                    Entre em contato conosco e receba um orçamento personalizado para suas necessidades
+                </p>
+                <div class="cta-actions">
+                    <a href="contato.html" class="btn-primary btn-large">
+                        <span class="btn-icon">🚀</span>
+                        Solicitar Orçamento Gratuito
+                    </a>
+                    <a href="portfolio.html" class="btn-secondary btn-large">
+                        <span class="btn-icon">📊</span>
+                        Ver Casos de Sucesso
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="cta-shapes">
+            <div class="cta-shape cta-shape-1"></div>
+            <div class="cta-shape cta-shape-2"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="grid grid-4 mb-6">
+                <div>
+                    <h3 style="color: #15ff00; margin-bottom: 20px; font-size: 1.2rem">Empresa</h3>
+                    <ul style="list-style: none">
+                        <li style="margin-bottom: 10px">
+                            <a href="sobre.html" style="color: #ffffff; text-decoration: none">Sobre Nós</a>
+                        </li>
+                        <li style="margin-bottom: 10px">
+                            <a href="servicos.html" style="color: #ffffff; text-decoration: none">Nossos Serviços</a>
+                        </li>
+                        <li style="margin-bottom: 10px">
+                            <a href="portfolio.html" style="color: #ffffff; text-decoration: none">Portfólio</a>
+                        </li>
+                        <li style="margin-bottom: 10px">
+                            <a href="contato.html" style="color: #ffffff; text-decoration: none">Contato</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="color: #15ff00; margin-bottom: 20px; font-size: 1.2rem">Serviços</h3>
+                    <ul style="list-style: none">
+                        <li style="margin-bottom: 10px; color: #ffffff">Mikrotik</li>
+                        <li style="margin-bottom: 10px; color: #ffffff">Huawei</li>
+                        <li style="margin-bottom: 10px; color: #ffffff">Datacom</li>
+                        <li style="margin-bottom: 10px; color: #ffffff">Monitoramentos</li>
+                        <li style="margin-bottom: 10px; color: #ffffff">Automações</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="color: #15ff00; margin-bottom: 20px; font-size: 1.2rem">Contato</h3>
+                    <div style="color: #ffffff">
+                        <p style="margin-bottom: 10px">📍 Belém, PA</p>
+                        <p style="margin-bottom: 10px">📞 (91) 9860-66544</p>
+                        <p style="margin-bottom: 10px">✉️ huiosconsutoria@gmail.com</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="color: #15ff00; margin-bottom: 20px; font-size: 1.2rem">Redes Sociais</h3>
+                    <div style="display: flex; gap: 15px">
+                        <a href="#" style="color: #15ff00; font-size: 1.5rem">📘</a>
+                        <a href="#" style="color: #15ff00; font-size: 1.5rem">📷</a>
+                        <a href="#" style="color: #15ff00; font-size: 1.5rem">🐦</a>
+                        <a href="#" style="color: #15ff00; font-size: 1.5rem">💼</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid rgba(21, 255, 0, 0.2); padding-top: 30px; text-align: center; color: #ffffff">
+                <p>&copy; 2024 Huios Consultoria. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/servicos.js"></script>
+</body>
+</html>

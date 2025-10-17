@@ -1,40 +1,26 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configuração otimizada para Azure
+  // Configuração básica sem bloqueios
   reactStrictMode: true,
-  compress: true,
-  poweredByHeader: false,
-  
-  // Configurações de ambiente
   env: {
+    // Ignorar variáveis de npm no cliente
     NPM_RC: undefined,
     NPM_TOKEN: undefined,
   },
-  
-  // Configurações de build
   eslint: {
-    ignoreDuringBuilds: true, // Desabilitar temporariamente
+    ignoreDuringBuilds: true,
   },
   typescript: {
-    ignoreBuildErrors: true, // Desabilitar temporariamente
+    ignoreBuildErrors: true,
   },
-  
-  // Configurações de imagens otimizadas para Azure
   images: {
-    unoptimized: false, // Habilitar otimização
-    domains: ['localhost', 'your-azure-domain.azurewebsites.net'],
-    formats: ['image/webp', 'image/avif'],
+    unoptimized: true,
   },
-  
-  // Configurações de output para Azure
-  // output: 'standalone', // Desabilitado devido a problemas com symlinks no Windows
-  
-  // Configurações de servidor
+  // Configuração para evitar avisos de variáveis de ambiente
   serverExternalPackages: ["@supabase/supabase-js"],
-  
-  // Configurações de webpack otimizadas
-  webpack: (config, { isServer, dev }) => {
+  webpack: (config, { isServer }) => {
     if (!isServer) {
+      // Ignorar variáveis de ambiente específicas do servidor no cliente
       config.resolve.fallback = {
         ...config.resolve.fallback,
         fs: false,
@@ -42,45 +28,7 @@ const nextConfig = {
         tls: false,
       }
     }
-    
-    // Otimizações para produção
-    if (!dev) {
-      config.optimization.splitChunks = {
-        chunks: 'all',
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all',
-          },
-        },
-      }
-    }
-    
     return config
-  },
-  
-  // Configurações de headers de segurança
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
-          },
-        ],
-      },
-    ]
   },
 }
 

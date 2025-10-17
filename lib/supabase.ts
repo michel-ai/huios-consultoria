@@ -4,47 +4,42 @@ import { createClient } from "@supabase/supabase-js"
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
+console.log("=== CONFIGURAÇÃO SUPABASE DEBUG ===")
+console.log("URL completa:", supabaseUrl)
+console.log("URL válida:", supabaseUrl ? "✅ Definida" : "❌ Não definida")
+console.log("Key válida:", supabaseKey ? "✅ Definida" : "❌ Não definida")
+
 // Validar formato da URL
 if (supabaseUrl && !supabaseUrl.includes("supabase.co")) {
   console.warn("⚠️ URL do Supabase pode estar incorreta:", supabaseUrl)
 }
 
 if (!supabaseUrl || !supabaseKey) {
-  console.error("❌ Variáveis de ambiente do Supabase não configuradas")
-  // Não falhar durante o build, apenas avisar
-  if (process.env.NODE_ENV === 'production') {
-    console.warn("⚠️ Supabase não configurado - algumas funcionalidades podem não funcionar")
-  } else {
-    throw new Error("Variáveis de ambiente do Supabase não configuradas")
-  }
+  console.warn("⚠️ Variáveis de ambiente do Supabase não configuradas - modo desenvolvimento")
+  // Em modo desenvolvimento, não vamos falhar, apenas avisar
 }
 
 // Criar cliente Supabase com configuração mais específica
-export const supabase = supabaseUrl && supabaseKey 
-  ? createClient(supabaseUrl, supabaseKey, {
-      auth: {
-        persistSession: false,
-        autoRefreshToken: false,
+export const supabase = createClient(
+  supabaseUrl || "https://placeholder.supabase.co", 
+  supabaseKey || "placeholder_key", 
+  {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+    },
+    global: {
+      headers: {
+        "Content-Type": "application/json",
       },
-      global: {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-      db: {
-        schema: "public",
-      },
-    })
-  : {
-      from: () => ({
-        select: () => ({ eq: () => ({ single: () => ({ data: null, error: { message: "Supabase não configurado" } }) }) }),
-        insert: () => ({ select: () => ({ single: () => ({ data: null, error: { message: "Supabase não configurado" } }) }) }),
-        update: () => ({ eq: () => ({ select: () => ({ single: () => ({ data: null, error: { message: "Supabase não configurado" } }) }) }) }),
-        delete: () => ({ eq: () => ({ data: null, error: { message: "Supabase não configurado" } }) }),
-      }),
-    } as any
+    },
+    db: {
+      schema: "public",
+    },
+  }
+)
 
-// Cliente Supabase criado
+console.log("✅ Cliente Supabase criado com sucesso")
 
 // Tipos para o banco de dados
 export interface Contact {
