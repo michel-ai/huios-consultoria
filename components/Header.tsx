@@ -72,7 +72,9 @@ export default function Header() {
           <div className="navbar-content">
             <Link href="/" className="navbar-brand" onClick={closeMobileMenu}>
               <div className="logo-container">
-                <img src="/images/huios-logo.jpg" alt="Huios Consultoria" className="logo-img" />
+                <div className="logo-text">
+                  HUIOS
+                </div>
               </div>
             </Link>
 
