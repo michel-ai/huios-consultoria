@@ -2,7 +2,7 @@ import { Resend } from "resend"
 
 // Verificar se a chave do Resend está configurada
 const resendKey = process.env.RESEND_API_KEY
-// Domínio personalizado para emails
+// Domínio personalizado para emails - usar onboarding@resend.dev para testes
 const emailDomain = process.env.EMAIL_DOMAIN || "onboarding@resend.dev"
 let resend: Resend | null = null
 
@@ -39,11 +39,17 @@ export async function sendContactNotification(contactData: ContactFormData) {
 
     // Usar o domínio personalizado se configurado
     const fromEmail = emailDomain.includes("@") ? emailDomain : `contato@${emailDomain}`
+    
+    console.log("📧 Configuração de email:")
+    console.log("- From:", fromEmail)
+    console.log("- To: huiosconsutoria@gmail.com")
+    console.log("- Resend configurado:", !!resend)
 
     const { data, error } = await resend.emails.send({
       from: `Huios Consultoria <${fromEmail}>`,
       to: ["huiosconsutoria@gmail.com"],
       subject: `🚀 Novo contato - ${contactData.name}`,
+      reply_to: contactData.email,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f5f5f5;">
           <div style="background-color: #000; padding: 30px; border-radius: 10px; margin-bottom: 20px;">
