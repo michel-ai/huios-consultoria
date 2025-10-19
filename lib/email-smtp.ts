@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer'
 
 // Configuração do Gmail SMTP
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.GMAIL_USER || 'huiosconsutoria@gmail.com',
