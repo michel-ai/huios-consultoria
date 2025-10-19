@@ -2,8 +2,8 @@ import { Resend } from "resend"
 
 // Verificar se a chave do Resend está configurada
 const resendKey = process.env.RESEND_API_KEY
-// Domínio personalizado para emails - usar onboarding@resend.dev para testes
-const emailDomain = process.env.EMAIL_DOMAIN || "onboarding@resend.dev"
+// Domínio personalizado para emails - usar domínio personalizado em produção
+const emailDomain = process.env.EMAIL_DOMAIN || "contato@huiosconsultoria.net.br"
 let resend: Resend | null = null
 
 if (resendKey && resendKey !== "placeholder_resend_key") {
