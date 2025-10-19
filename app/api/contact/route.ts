@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { supabase } from "@/lib/supabase"
 import { sendContactNotification, sendAutoReply } from "@/lib/email"
+import { sendContactNotificationSMTP, sendAutoReplySMTP } from "@/lib/email-smtp"
 
 export async function GET() {
   return NextResponse.json({
@@ -108,13 +109,33 @@ export async function POST(request: Request) {
       }
     }
 
-    // 3. Enviar emails (em paralelo para ser mais rápido)
+    // 3. Enviar emails (tentar Resend primeiro, depois SMTP como fallback)
     console.log("📧 Enviando emails...")
 
-    const [notificationResult, autoReplyResult] = await Promise.allSettled([
-      sendContactNotification(contactData),
-      sendAutoReply(contactData),
-    ])
+    // Tentar Resend primeiro
+    let notificationResult, autoReplyResult
+    
+    try {
+      [notificationResult, autoReplyResult] = await Promise.allSettled([
+        sendContactNotification(contactData),
+        sendAutoReply(contactData),
+      ])
+      
+      // Verificar se Resend funcionou
+      const resendWorked = notificationResult.status === "fulfilled" && 
+                          notificationResult.value.success
+      
+      if (!resendWorked) {
+        console.log("⚠️ Resend falhou, tentando SMTP...")
+        throw new Error("Resend falhou")
+      }
+    } catch (error) {
+      console.log("🔄 Tentando SMTP como fallback...")
+      [notificationResult, autoReplyResult] = await Promise.allSettled([
+        sendContactNotificationSMTP(contactData),
+        sendAutoReplySMTP(contactData),
+      ])
+    }
 
     // Processar resultado da notificação
     let adminEmailSent = false
