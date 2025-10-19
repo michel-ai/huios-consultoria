@@ -112,10 +112,12 @@ export async function POST(request: Request) {
     // 3. Enviar emails (tentar Resend primeiro, depois SMTP como fallback)
     console.log("📧 Enviando emails...")
 
-    // Tentar Resend primeiro
+    // Sistema de email otimizado para produção
     let notificationResult, autoReplyResult
     
+    // Tentar Resend primeiro (com delay para evitar rate limit)
     try {
+      console.log("📧 Tentando Resend...")
       [notificationResult, autoReplyResult] = await Promise.allSettled([
         sendContactNotification(contactData),
         sendAutoReply(contactData),
@@ -131,10 +133,25 @@ export async function POST(request: Request) {
       }
     } catch (error) {
       console.log("🔄 Tentando SMTP como fallback...")
-      [notificationResult, autoReplyResult] = await Promise.allSettled([
-        sendContactNotificationSMTP(contactData),
-        sendAutoReplySMTP(contactData),
-      ])
+      
+      // Verificar se SMTP está configurado
+      if (process.env.GMAIL_APP_PASSWORD) {
+        try {
+          [notificationResult, autoReplyResult] = await Promise.allSettled([
+            sendContactNotificationSMTP(contactData),
+            sendAutoReplySMTP(contactData),
+          ])
+        } catch (smtpError) {
+          console.error("❌ SMTP também falhou:", smtpError)
+          // Criar resultados simulados para não quebrar o sistema
+          notificationResult = { status: "rejected", reason: "SMTP não configurado" }
+          autoReplyResult = { status: "rejected", reason: "SMTP não configurado" }
+        }
+      } else {
+        console.log("⚠️ SMTP não configurado - criando resultados simulados")
+        notificationResult = { status: "rejected", reason: "SMTP não configurado" }
+        autoReplyResult = { status: "rejected", reason: "SMTP não configurado" }
+      }
     }
 
     // Processar resultado da notificação

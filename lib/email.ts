@@ -23,6 +23,10 @@ export interface ContactFormData {
   message: string
 }
 
+// Rate limiting para evitar erro 429
+let lastEmailTime = 0
+const EMAIL_DELAY = 1000 // 1 segundo entre emails
+
 export async function sendContactNotification(contactData: ContactFormData) {
   try {
     if (!resend) {
@@ -33,6 +37,15 @@ export async function sendContactNotification(contactData: ContactFormData) {
         skipped: true,
       }
     }
+
+    // Rate limiting
+    const now = Date.now()
+    if (now - lastEmailTime < EMAIL_DELAY) {
+      const waitTime = EMAIL_DELAY - (now - lastEmailTime)
+      console.log(`⏳ Rate limiting: aguardando ${waitTime}ms`)
+      await new Promise(resolve => setTimeout(resolve, waitTime))
+    }
+    lastEmailTime = Date.now()
 
     console.log("📧 Enviando notificação para admin...")
     console.log("Dados do contato:", contactData)
@@ -147,6 +160,15 @@ export async function sendAutoReply(contactData: ContactFormData) {
         skipped: true,
       }
     }
+
+    // Rate limiting
+    const now = Date.now()
+    if (now - lastEmailTime < EMAIL_DELAY) {
+      const waitTime = EMAIL_DELAY - (now - lastEmailTime)
+      console.log(`⏳ Rate limiting: aguardando ${waitTime}ms`)
+      await new Promise(resolve => setTimeout(resolve, waitTime))
+    }
+    lastEmailTime = Date.now()
 
     console.log("📧 Enviando auto-resposta para:", contactData.email)
 

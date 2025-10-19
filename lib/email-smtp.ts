@@ -1,13 +1,20 @@
 import nodemailer from 'nodemailer'
 
-// Configuração do Gmail SMTP
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.GMAIL_USER || 'huiosconsutoria@gmail.com',
-    pass: process.env.GMAIL_APP_PASSWORD || process.env.GMAIL_PASSWORD
-  }
-})
+// Configuração do Gmail SMTP para produção
+let transporter: nodemailer.Transporter | null = null
+
+if (process.env.GMAIL_APP_PASSWORD) {
+  transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.GMAIL_USER || 'huiosconsutoria@gmail.com',
+      pass: process.env.GMAIL_APP_PASSWORD
+    }
+  })
+  console.log("✅ SMTP configurado para produção")
+} else {
+  console.warn("⚠️ GMAIL_APP_PASSWORD não configurado - SMTP desabilitado")
+}
 
 export interface ContactFormData {
   name: string
@@ -20,6 +27,15 @@ export interface ContactFormData {
 
 export async function sendContactNotificationSMTP(contactData: ContactFormData) {
   try {
+    if (!transporter) {
+      console.warn("⚠️ SMTP não configurado - pulando notificação")
+      return {
+        success: false,
+        error: "SMTP não configurado",
+        skipped: true,
+      }
+    }
+
     console.log("📧 Enviando notificação via SMTP...")
     console.log("Dados do contato:", contactData)
 
@@ -103,6 +119,15 @@ export async function sendContactNotificationSMTP(contactData: ContactFormData) 
 
 export async function sendAutoReplySMTP(contactData: ContactFormData) {
   try {
+    if (!transporter) {
+      console.warn("⚠️ SMTP não configurado - pulando auto-resposta")
+      return {
+        success: false,
+        error: "SMTP não configurado",
+        skipped: true,
+      }
+    }
+
     console.log("📧 Enviando auto-resposta via SMTP para:", contactData.email)
 
     const mailOptions = {
