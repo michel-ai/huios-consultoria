@@ -48,7 +48,7 @@ INSERT INTO site_settings (key, value, description) VALUES
 (
     'contact_info',
     '{
-        "phone": "(91) 9860-66544",
+        "phone": "(91) 98606-6544",
         "email": "huiosconsutoria@gmail.com",
         "address": "Belém, Pará, Brasil",
         "business_hours": "Segunda a Sexta: 8h às 18h"

@@ -37,9 +37,9 @@ export default function Servicos() {
         "Otimização de performance",
       ],
       implementacao: {
-        basico: "R$ 2.500",
-        intermediario: "R$ 4.500",
-        avancado: "R$ 8.000",
+        basico: "R$ 800,00",
+        intermediario: "R$ 2.500",
+        avancado: "R$ 5.000",
       },
       consultoria: {
         basico: "R$ 800/mês",
@@ -70,7 +70,7 @@ export default function Servicos() {
         "Suporte técnico especializado",
       ],
       implementacao: {
-        basico: "R$ 3.500",
+        basico: "R$ 1.500",
         intermediario: "R$ 6.500",
         avancado: "R$ 12.000",
       },
@@ -103,9 +103,9 @@ export default function Servicos() {
         "Consultoria técnica",
       ],
       implementacao: {
-        basico: "R$ 3.000",
+        basico: "R$ 1.300",
         intermediario: "R$ 5.500",
-        avancado: "R$ 10.000",
+        avancado: "R$ 7.500",
       },
       consultoria: {
         basico: "R$ 900/mês",
@@ -136,8 +136,8 @@ export default function Servicos() {
         "Análise de performance",
       ],
       implementacao: {
-        basico: "R$ 2.000",
-        intermediario: "R$ 4.000",
+        basico: "R$ 1.500",
+        intermediario: "R$ 3.500",
         avancado: "R$ 7.500",
       },
       consultoria: {

@@ -24,7 +24,7 @@ export async function POST() {
     const testContactData = {
       name: "Teste com Nova Chave Resend",
       email: "huiosconsutoria@gmail.com",
-      phone: "(91) 9860-66544",
+      phone: "(91) 98606-6544",
       company: "Huios Consultoria",
       service_type: "Teste",
       message: "Este é um teste do sistema de email com a nova chave do Resend configurada.",

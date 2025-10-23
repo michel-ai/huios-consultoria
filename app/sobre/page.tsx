@@ -129,69 +129,6 @@ export default function Sobre() {
         </div>
       </section>
 
-      {/* Nossa Equipe */}
-      <section className="section-padding team-section">
-        <div className="container">
-          <div className="heading-container">
-            <h2>Nossa Equipe</h2>
-            <p className="section-subtitle">Profissionais especializados e comprometidos com a excelência</p>
-          </div>
-
-          <div className="team-grid">
-            <div className="team-member">
-              <div className="member-photo">
-                <div className="photo-placeholder">👤</div>
-              </div>
-              <div className="member-info">
-                <h3>João Silva</h3>
-                <div className="member-role">CEO & Fundador</div>
-                <div className="member-description">
-                  Especialista em gestão estratégica com mais de 15 anos de experiência em tecnologia.
-                </div>
-              </div>
-            </div>
-
-            <div className="team-member">
-              <div className="member-photo">
-                <div className="photo-placeholder">👤</div>
-              </div>
-              <div className="member-info">
-                <h3>Maria Santos</h3>
-                <div className="member-role">CTO</div>
-                <div className="member-description">
-                  Arquiteta de sistemas com expertise em cloud computing e infraestrutura corporativa.
-                </div>
-              </div>
-            </div>
-
-            <div className="team-member">
-              <div className="member-photo">
-                <div className="photo-placeholder">👤</div>
-              </div>
-              <div className="member-info">
-                <h3>Pedro Costa</h3>
-                <div className="member-role">Diretor Técnico</div>
-                <div className="member-description">
-                  Especialista em redes e infraestrutura com certificações Mikrotik, Huawei e Datacom.
-                </div>
-              </div>
-            </div>
-
-            <div className="team-member">
-              <div className="member-photo">
-                <div className="photo-placeholder">👤</div>
-              </div>
-              <div className="member-info">
-                <h3>Ana Oliveira</h3>
-                <div className="member-role">Gerente de Projetos</div>
-                <div className="member-description">
-                  Especialista em metodologias ágeis e gestão de projetos de tecnologia.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Por que escolher a Huios */}
       <section className="section-padding why-choose-section">

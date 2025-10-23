@@ -281,7 +281,11 @@ export default function Contato() {
                   <div style={{ fontSize: "2rem", marginRight: "15px" }}>📞</div>
                   <div>
                     <h4 style={{ color: "#15ff00", marginBottom: "5px" }}>Telefone</h4>
-                    <p style={{ color: "#ffffff" }}>(91) 9860-66544</p>
+                    <p style={{ color: "#ffffff" }}>
+                      <a href="https://wa.me/5591986066544" target="_blank" style={{ color: "#15ff00", textDecoration: "none", cursor: "pointer", display: "inline-block", pointerEvents: "auto", zIndex: 999, position: "relative" }}>
+                        (91) 98606-6544
+                      </a>
+                    </p>
                   </div>
                 </div>
 
@@ -289,7 +293,11 @@ export default function Contato() {
                   <div style={{ fontSize: "2rem", marginRight: "15px" }}>✉️</div>
                   <div>
                     <h4 style={{ color: "#15ff00", marginBottom: "5px" }}>E-mail</h4>
-                    <p style={{ color: "#ffffff" }}>huiosconsutoria@gmail.com</p>
+                    <p style={{ color: "#ffffff" }}>
+                      <a href="mailto:huiosconsutoria@gmail.com" style={{ color: "#15ff00", textDecoration: "none", cursor: "pointer", display: "inline-block", pointerEvents: "auto", zIndex: 999, position: "relative" }}>
+                        huiosconsutoria@gmail.com
+                      </a>
+                    </p>
                   </div>
                 </div>
 

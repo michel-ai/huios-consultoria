@@ -7,7 +7,7 @@ export async function POST() {
     const testData = {
       nome: "Teste Sistema Completo",
       email: "michelquaresma025@gmail.com", // Usando seu email para teste
-      telefone: "(91) 9860-66544",
+      telefone: "(91) 98606-6544",
       empresa: "Huios Consultoria",
       servico: "Consultoria",
       mensagem: "Este é um teste completo do sistema de contato com Supabase e envio de emails configurados.",

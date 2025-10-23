@@ -46,25 +46,30 @@ export default function Footer() {
             <h3 style={{ color: "#15ff00", marginBottom: "20px", fontSize: "1.2rem" }}>Contato</h3>
             <div style={{ color: "#ffffff" }}>
               <p style={{ marginBottom: "10px" }}>📍 Belém, PA</p>
-              <p style={{ marginBottom: "10px" }}>📞 (91) 9860-66544</p>
-              <p style={{ marginBottom: "10px" }}>✉️ huiosconsutoria@gmail.com</p>
+              <p style={{ marginBottom: "10px" }}>
+                <a href="https://wa.me/5591986066544" target="_blank" style={{ color: "#15ff00", textDecoration: "none", cursor: "pointer", display: "inline-block", pointerEvents: "auto", zIndex: 999, position: "relative" }}>
+                  📞 (91) 98606-6544
+                </a>
+              </p>
+              <p style={{ marginBottom: "10px" }}>
+                <a href="mailto:huiosconsutoria@gmail.com" style={{ color: "#15ff00", textDecoration: "none", cursor: "pointer", display: "inline-block", pointerEvents: "auto", zIndex: 999, position: "relative" }}>
+                  ✉️ huiosconsutoria@gmail.com
+                </a>
+              </p>
             </div>
           </div>
 
           <div>
             <h3 style={{ color: "#15ff00", marginBottom: "20px", fontSize: "1.2rem" }}>Redes Sociais</h3>
-            <div style={{ display: "flex", gap: "15px" }}>
-              <a href="#" style={{ color: "#15ff00", fontSize: "1.5rem" }}>
-                📘
-              </a>
-              <a href="#" style={{ color: "#15ff00", fontSize: "1.5rem" }}>
+            <div style={{ display: "flex", gap: "15px", position: "relative", zIndex: 1000 }}>
+              <a href="https://www.instagram.com/huiosconsultorias/" target="_blank" style={{ color: "#15ff00", fontSize: "1.5rem", cursor: "pointer", display: "inline-block", pointerEvents: "auto", zIndex: 999, position: "relative" }} title="Instagram">
                 📷
               </a>
-              <a href="#" style={{ color: "#15ff00", fontSize: "1.5rem" }}>
-                🐦
+              <a href="https://wa.me/5591986066544" target="_blank" style={{ color: "#15ff00", fontSize: "1.5rem", cursor: "pointer", display: "inline-block", pointerEvents: "auto", zIndex: 999, position: "relative" }} title="WhatsApp">
+                💬
               </a>
-              <a href="#" style={{ color: "#15ff00", fontSize: "1.5rem" }}>
-                💼
+              <a href="mailto:huiosconsutoria@gmail.com" style={{ color: "#15ff00", fontSize: "1.5rem", cursor: "pointer", display: "inline-block", pointerEvents: "auto", zIndex: 999, position: "relative" }} title="Email">
+                ✉️
               </a>
             </div>
           </div>
